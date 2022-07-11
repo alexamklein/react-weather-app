@@ -1,0 +1,56 @@
+.Overview h1 {
+  line-height: 1;
+  font-size: 38px;
+  margin-bottom: 4px;
+}
+
+.Overview img {
+  position: relative;
+  bottom: 10px;
+  right: 40px;
+}
+
+.Overview strong {
+  line-height: 1;
+  font-size: 60px;
+  position: relative;
+  top: 4px;
+}
+
+.Overview .temp-units {
+  font-size: 14px;
+  position: relative;
+  bottom: 28px;
+}
+
+.Overview .active {
+  color: rgb(0 0 0);
+  cursor: default;
+}
+
+.Overview .active:hover {
+  color: rgb(0 0 0);
+  text-decoration: none;
+}
+
+.Overview .feels-like-temp {
+  position: relative;
+  bottom: 6px;
+}
+
+@media screen and (max-width: 767px) {
+  .Overview h1 {
+    font-size: 20px;
+  }
+
+  .Overview img {
+    position: relative;
+    top: 3px;
+    left: 130px;
+  }
+
+  .Overview .current-temp {
+    position: relative;
+    bottom: 85px;
+  }
+}

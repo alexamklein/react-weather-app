@@ -1,0 +1,30 @@
+.Forecast {
+  text-align: center;
+  font-size: 15px;
+  line-height: 2;
+}
+
+.Forecast .forecast-cards {
+  padding: 0 5px;
+}
+
+.Forecast .forecast-icon {
+  width: 40px;
+  height: auto;
+}
+
+.Forecast .forecast-temp,
+.Forecast .precipitation {
+  font-size: 12px;
+}
+
+.Forecast .today-forecast {
+  background-color: rgba(125, 125, 125, 0.25);
+}
+
+@media screen and (max-width: 767px) {
+  .Forecast {
+    position: relative;
+    bottom: 70px;
+  }
+}

@@ -1,0 +1,24 @@
+body {
+  background-color: rgba(236, 110, 76, 0.1);
+}
+
+ul {
+  padding-left: 0;
+  line-height: 1;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: rgb(236, 110, 76);
+}
+
+a:hover {
+  color: rgb(204, 94, 67);
+}
+
+.container {
+  max-width: 805px;
+}
