@@ -8,10 +8,12 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <Form />
-      <Overview />
-      <Forecast />
-      <Footer />
+      <div className="container">
+        <Form />
+        <Overview />
+        <Forecast />
+        <Footer />
+      </div>
     </div>
   );
 }

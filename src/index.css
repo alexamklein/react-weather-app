@@ -18,7 +18,3 @@ a {
 a:hover {
   color: rgb(204, 94, 67);
 }
-
-.container {
-  max-width: 805px;
-}
