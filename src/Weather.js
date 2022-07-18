@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Rings } from "react-loader-spinner";
 import "./Weather.css";
 
 export default function Weather(props) {
@@ -108,6 +109,8 @@ export default function Weather(props) {
     let apiUrl = `${apiEndpoint}?q=${city}&appid=${apiKey}&units=${unit}`;
     axios.get(apiUrl).then(handleResponse);
 
-    return "Loading...";
+    return (
+      <Rings height="100" width="100" color="#ec6e4c" ariaLabel="loading" />
+    );
   }
 }
