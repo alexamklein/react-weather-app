@@ -1,5 +1,4 @@
-import Form from "./Form";
-import Overview from "./Overview";
+import Weather from "./Weather";
 import Forecast from "./Forecast";
 import Footer from "./Footer";
 
@@ -9,8 +8,7 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <Form />
-        <Overview />
+        <Weather defaultCity="Toronto" />
         <Forecast />
         <Footer />
       </div>
