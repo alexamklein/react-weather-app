@@ -1,0 +1,13 @@
+.SearchForm button {
+  color: rgb(236, 110, 76);
+  border-color: rgb(236, 110, 76);
+}
+
+.SearchForm button:hover {
+  background-color: rgb(236, 110, 76);
+  border-color: rgb(236, 110, 76);
+}
+
+.SearchForm .search-instruction {
+  font-size: 13px;
+}

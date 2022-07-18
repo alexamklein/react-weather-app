@@ -19,7 +19,7 @@ export default function Forecast() {
             </div>
             <div className="precipitation">
               <i className="fa-solid fa-umbrella"></i>
-              <span>0%</span>
+              <span> 0%</span>
             </div>
           </div>
         </div>
@@ -39,7 +39,7 @@ export default function Forecast() {
             </div>
             <div className="precipitation">
               <i className="fa-solid fa-umbrella"></i>
-              <span>63%</span>
+              <span> 63%</span>
             </div>
           </div>
         </div>
@@ -59,7 +59,7 @@ export default function Forecast() {
             </div>
             <div className="precipitation">
               <i className="fa-solid fa-umbrella"></i>
-              <span>100%</span>
+              <span> 100%</span>
             </div>
           </div>
         </div>
@@ -79,7 +79,7 @@ export default function Forecast() {
             </div>
             <div className="precipitation">
               <i className="fa-solid fa-umbrella"></i>
-              <span>27%</span>
+              <span> 27%</span>
             </div>
           </div>
         </div>
@@ -99,7 +99,7 @@ export default function Forecast() {
             </div>
             <div className="precipitation">
               <i className="fa-solid fa-umbrella"></i>
-              <span>0%</span>
+              <span> 0%</span>
             </div>
           </div>
         </div>
@@ -119,7 +119,7 @@ export default function Forecast() {
             </div>
             <div className="precipitation">
               <i className="fa-solid fa-umbrella"></i>
-              <span>0%</span>
+              <span> 0%</span>
             </div>
           </div>
         </div>
@@ -139,7 +139,7 @@ export default function Forecast() {
             </div>
             <div className="precipitation">
               <i className="fa-solid fa-umbrella"></i>
-              <span>86%</span>
+              <span> 86%</span>
             </div>
           </div>
         </div>

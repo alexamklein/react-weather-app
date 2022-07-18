@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Rings } from "react-loader-spinner";
-import FormattedTime from "./FormattedTime";
-import "./Weather.css";
+import Overview from "./Overview";
+import Forecast from "./Forecast";
 
-export default function Weather(props) {
+import "./SearchForm.css";
+
+export default function SearchForm(props) {
   const [weatherData, setWeatherData] = useState({ loaded: false });
+  const [city, setCity] = useState(props.defaultCity);
 
   function getWeather(response) {
     setWeatherData({
@@ -23,10 +26,27 @@ export default function Weather(props) {
     });
   }
 
+  function search() {
+    const apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
+    const apiKey = "6f7fc1e8921ca5e8743c4596d4b381f9";
+    let unit = "metric";
+    let apiUrl = `${apiEndpoint}?q=${city}&appid=${apiKey}&units=${unit}`;
+    axios.get(apiUrl).then(getWeather);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
+  function handleCityChange(event) {
+    setCity(event.target.value);
+  }
+
   if (weatherData.loaded) {
     return (
-      <div className="Weather">
-        <form className="Form">
+      <div className="SearchForm">
+        <form onSubmit={handleSubmit}>
           <div className="row mb-4">
             <div className="col-10">
               <input
@@ -34,6 +54,7 @@ export default function Weather(props) {
                 type="search"
                 placeholder="Search"
                 autoComplete="off"
+                onChange={handleCityChange}
               />
               <small className="form-text text-muted d-none d-md-block">
                 Enter city (<em>e.g.</em>, Toronto) or city and 2-letter country
@@ -55,63 +76,12 @@ export default function Weather(props) {
             </div>
           </div>
         </form>
-        <div className="Overview row mb-4">
-          <div className="col-md-7">
-            <h1>
-              <span>{weatherData.city}, </span>
-              <span>{weatherData.countryCode}</span>
-            </h1>
-            <ul>
-              <li>
-                <small>
-                  <FormattedTime
-                    time={weatherData.time}
-                    timezone={weatherData.timezone}
-                  />
-                  <span>, {weatherData.description}</span>
-                </small>
-              </li>
-              <li>
-                <small>
-                  <span>Humidity: {weatherData.humidity}%, </span>
-                  <span>
-                    Wind: {Math.round(weatherData.windSpeed * 3.6)} km/h
-                  </span>
-                </small>
-              </li>
-            </ul>
-          </div>
-          <div className="col-md-1">
-            <img src={weatherData.icon} alt={weatherData.description} />
-          </div>
-          <div className="col-md-4 current-temp">
-            <div>
-              <strong>{Math.round(weatherData.temperature)}</strong>
-              <span className="temp-units">
-                <a href="/" className="active">
-                  °C
-                </a>
-                <span> | </span>
-                <a href="/">°F</a>
-              </span>
-            </div>
-            <div className="feels-like-temp">
-              <small>
-                <span>Feels like: {Math.round(weatherData.feelsLike)} °C</span>
-              </small>
-            </div>
-          </div>
-        </div>
+        <Overview weather={weatherData} />
+        <Forecast />
       </div>
     );
   } else {
-    const apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
-    const apiKey = "6f7fc1e8921ca5e8743c4596d4b381f9";
-    let city = props.defaultCity;
-    let unit = "metric";
-    let apiUrl = `${apiEndpoint}?q=${city}&appid=${apiKey}&units=${unit}`;
-    axios.get(apiUrl).then(getWeather);
-
+    search();
     return (
       <div class="d-flex justify-content-center align-items-center">
         <Rings height="100" width="100" color="#ec6e4c" ariaLabel="loading" />
