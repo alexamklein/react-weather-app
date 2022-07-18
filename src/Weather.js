@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Rings } from "react-loader-spinner";
+import FormattedTime from "./FormattedTime";
 import "./Weather.css";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ loaded: false });
 
-  function handleResponse(response) {
+  function getWeather(response) {
     setWeatherData({
       loaded: true,
       city: response.data.name,
       countryCode: response.data.sys.country,
-      day: "Tue",
-      time: "10:05 AM",
+      time: response.data.dt,
+      timezone: response.data.timezone,
       description: response.data.weather[0].main,
       humidity: response.data.main.humidity,
       windSpeed: response.data.wind.speed,
@@ -63,9 +64,11 @@ export default function Weather(props) {
             <ul>
               <li>
                 <small>
-                  <span>{weatherData.day}, </span>
-                  <span>{weatherData.time}, </span>
-                  <span>{weatherData.description}</span>
+                  <FormattedTime
+                    time={weatherData.time}
+                    timezone={weatherData.timezone}
+                  />
+                  <span>, {weatherData.description}</span>
                 </small>
               </li>
               <li>
@@ -107,10 +110,12 @@ export default function Weather(props) {
     let city = props.defaultCity;
     let unit = "metric";
     let apiUrl = `${apiEndpoint}?q=${city}&appid=${apiKey}&units=${unit}`;
-    axios.get(apiUrl).then(handleResponse);
+    axios.get(apiUrl).then(getWeather);
 
     return (
-      <Rings height="100" width="100" color="#ec6e4c" ariaLabel="loading" />
+      <div class="d-flex justify-content-center align-items-center">
+        <Rings height="100" width="100" color="#ec6e4c" ariaLabel="loading" />
+      </div>
     );
   }
 }
