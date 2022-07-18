@@ -16,7 +16,7 @@ export default function Form() {
             Enter city (<em>e.g.</em>, Toronto) or city and 2-letter country
             code (<em>e.g.</em>, Melbourne, AU).
           </small>
-          <small className="form-text text-muted d-block d-md-none">
+          <small className="form-text text-muted d-block d-md-none search-instruction">
             <em>e.g.</em>, Toronto or Melbourne, AU
           </small>
         </div>
