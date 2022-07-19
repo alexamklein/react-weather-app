@@ -25,6 +25,11 @@ function App() {
     });
   }
 
+  function removeLoaderProperties() {
+    const loader = document.getElementById("loader");
+    console.log(loader);
+  }
+
   function searchCurrentLocation(position) {
     const apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
     const apiKey = "6f7fc1e8921ca5e8743c4596d4b381f9";
@@ -32,6 +37,7 @@ function App() {
     let longitude = position.coords.longitude;
     let apiUrl = `${apiEndpoint}?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
     axios.get(`${apiUrl}`).then(getWeather);
+    removeLoaderProperties();
   }
 
   function getCurrentLocation(event) {
@@ -52,7 +58,7 @@ function App() {
     );
   } else {
     return (
-      <div className="d-flex justify-content-center align-items-center">
+      <div className="loader">
         <Rings height="100" width="100" color="#cc5d43" ariaLabel="loading" />
       </div>
     );

@@ -14,6 +14,13 @@
   padding-right: 0;
 }
 
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 @media screen and (max-width: 767px) {
   .App {
     max-width: 265px;
