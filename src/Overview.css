@@ -1,6 +1,6 @@
 .Overview h1 {
   line-height: 1;
-  font-size: 38px;
+  font-size: 34px;
   margin-bottom: 4px;
 }
 
@@ -33,6 +33,12 @@
   text-decoration: none;
 }
 
+.Overview .weather-icon,
+.Overview .current-temp {
+  position: relative;
+  left: 55px;
+}
+
 .Overview .feels-like-temp {
   position: relative;
   bottom: 6px;
@@ -49,8 +55,14 @@
     left: 130px;
   }
 
+  .Overview .weather-icon {
+    position: relative;
+    left: -140px;
+  }
+
   .Overview .current-temp {
     position: relative;
     bottom: 85px;
+    left: 90px;
   }
 }

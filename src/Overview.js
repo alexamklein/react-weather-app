@@ -57,7 +57,7 @@ export default function Overview(props) {
             </li>
           </ul>
         </div>
-        <div className="col-md-1">
+        <div className="col-md-1 weather-icon">
           <img src={props.weather.icon} alt={props.weather.description} />
         </div>
         <div className="col-md-4 current-temp">
@@ -107,7 +107,7 @@ export default function Overview(props) {
             </li>
           </ul>
         </div>
-        <div className="col-md-1">
+        <div className="col-md-1 weather-icon">
           <img src={props.weather.icon} alt={props.weather.description} />
         </div>
         <div className="col-md-4 current-temp">
