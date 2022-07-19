@@ -7,27 +7,13 @@ import Footer from "./Footer";
 import "./App.css";
 
 function App() {
-  const [weatherData, setWeatherData] = useState({ loaded: false });
+  const [location, setLocation] = useState({ loaded: false });
 
-  function getWeather(response) {
-    setWeatherData({
+  function getLocationName(response) {
+    setLocation({
       loaded: true,
-      city: response.data.name,
-      countryCode: response.data.sys.country,
-      time: response.data.dt,
-      timezone: response.data.timezone,
-      description: response.data.weather[0].main,
-      humidity: response.data.main.humidity,
-      windSpeed: response.data.wind.speed,
-      temperature: response.data.main.temp,
-      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
-      feelsLike: response.data.main.feels_like,
+      name: response.data.name,
     });
-  }
-
-  function removeLoaderProperties() {
-    const loader = document.getElementById("loader");
-    console.log(loader);
   }
 
   function searchCurrentLocation(position) {
@@ -35,9 +21,8 @@ function App() {
     const apiKey = "6f7fc1e8921ca5e8743c4596d4b381f9";
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
-    let apiUrl = `${apiEndpoint}?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-    axios.get(`${apiUrl}`).then(getWeather);
-    removeLoaderProperties();
+    let apiUrl = `${apiEndpoint}?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+    axios.get(`${apiUrl}`).then(getLocationName);
   }
 
   function getCurrentLocation(event) {
@@ -47,11 +32,11 @@ function App() {
 
   window.onload = getCurrentLocation;
 
-  if (weatherData.loaded) {
+  if (location.loaded) {
     return (
       <div className="App">
         <div className="container">
-          <SearchForm currentLocation={weatherData.city} />
+          <SearchForm currentLocation={location.name} />
           <Footer />
         </div>
       </div>
