@@ -22,7 +22,7 @@ function App() {
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
     let apiUrl = `${apiEndpoint}?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
-    axios.get(`${apiUrl}`).then(getLocationName);
+    axios.get(apiUrl).then(getLocationName);
   }
 
   function getCurrentLocation(event) {

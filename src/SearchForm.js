@@ -211,7 +211,7 @@ export default function SearchForm(props) {
             </ul>
           </div>
           <div className="col-md-1 weather-icon">
-            <img src={props.weather.icon} alt={weatherData.description} />
+            <img src={weatherData.icon} alt={weatherData.description} />
           </div>
           <div className="col-md-4 current-temp">
             <div>
