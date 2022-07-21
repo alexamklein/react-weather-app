@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Rings } from "react-loader-spinner";
 import FormatTime from "./FormatTime";
 import Forecast from "./Forecast";
 
@@ -45,19 +44,19 @@ export default function SearchForm(props) {
 
   function handleLocationClick() {
     setCity(props.currentLocation);
-    search();
+    setWeatherData({ loaded: false });
   }
 
   function handleFahrenheitClick(event) {
     event.preventDefault();
     setUnit("imperial");
-    search();
+    setWeatherData({ loaded: false });
   }
 
   function handleCelsiusClick(event) {
     event.preventDefault();
     setUnit("metric");
-    search();
+    setWeatherData({ loaded: false });
   }
 
   if (weatherData.loaded && unit === "metric") {
@@ -238,10 +237,5 @@ export default function SearchForm(props) {
     );
   } else {
     search();
-    return (
-      <div className="d-flex justify-content-center align-items-center">
-        <Rings height="100" width="100" color="#ec6e4c" ariaLabel="loading" />
-      </div>
-    );
   }
 }
